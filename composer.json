@@ -1,0 +1,63 @@
+{
+  "name": "nettrine/odm",
+  "description": "Doctrine ODM for Nette Framework",
+  "keywords": ["nette", "doctrine", "odm", "database", "document"],
+  "type": "library",
+  "license": "MIT",
+  "homepage": "https://github.com/nettrine/odm",
+  "authors": [
+    {
+      "name": "David Šolc",
+      "homepage": "https://solc.dev"
+    }
+  ],
+  "require": {
+    "php": "^7.3",
+    "ext-mongodb": "*",
+    "contributte/di": "^0.4.2",
+    "doctrine/cache": "^1.10.0",
+    "doctrine/mongodb-odm": "^2.0.5",
+    "doctrine/persistence": "^1.3.6",
+    "mongodb/mongodb": "^1.5.2",
+    "nette/di": "^3.0.3",
+    "nette/schema": "^1.0.2",
+    "nettrine/annotations": "^0.6.0",
+    "nettrine/cache": "^0.1.0"
+  },
+  "require-dev": {
+    "mockery/mockery": "^1.3.1",
+    "ninjify/qa": "^0.9.0",
+    "phpstan/extension-installer": "^1.0.3",
+    "phpstan/phpstan": "^0.12.0",
+    "phpstan/phpstan-deprecation-rules": "^0.12.2",
+    "phpstan/phpstan-nette": "^0.12.3",
+    "phpstan/phpstan-strict-rules": "^0.12.2",
+    "phpunit/phpunit": "^8.5.2",
+    "nettrine/mongodb": "^0.1.0"
+  },
+  "suggest": {
+    "symfony/console": "Required to use Symfony Console commands."
+  },
+  "autoload": {
+    "psr-4": {
+      "Nettrine\\ODM\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\Cases\\": "tests/cases",
+      "Tests\\Fixtures\\": "tests/fixtures",
+      "Tests\\Toolkit\\": "tests/toolkit"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "sort-packages": true
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "0.1.x-dev"
+    }
+  }
+}
