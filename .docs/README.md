@@ -142,7 +142,7 @@ nettrine.odm:
 
 **Under the hood**
 
-Minimal configuration could looks like this:
+Minimal configuration could look like this:
 
 ```yaml
 nettrine.odm:
@@ -159,9 +159,9 @@ nettrine.odm:
 
 ## Mapping
 
-Doctrine ODM needs to know where are your entities located and how are described (mapping).
+Doctrine ODM needs to know where your entities are located and how they are described (mapping).
 
-You gonna needed to register additional metadata provider. We provide these drivers bridges:
+Additional metadata provider needs to be registered. We provide bridges for these drivers:
 
 - **annotations** (`Nettrine\ODM\DI\OdmAnnotationsExtension`)
 - **xml** (`Nettrine\ODM\DI\OdmXmlExtension`)
