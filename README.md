@@ -1,6 +1,6 @@
 # Nettrine ODM
 
-[Doctrine/ODM](https://www.doctrine-project.org/projects/doctrine-mongodb-odm) to Nette Framework.
+[Doctrine/ODM](https://www.doctrine-project.org/projects/mongodb-odm) to Nette Framework.
 
 [![Build Status](https://img.shields.io/travis/nettrine/odm.svg?style=flat-square)](https://travis-ci.org/nettrine/odm)
 [![Code coverage](https://img.shields.io/coveralls/nettrine/odm.svg?style=flat-square)](https://coveralls.io/r/nettrine/odm)

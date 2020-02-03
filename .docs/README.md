@@ -1,6 +1,6 @@
 # Nettrine ODM
 
-[Doctrine/ODM](https://www.doctrine-project.org/projects/doctrine-mongodb-odm) to Nette Framework.
+[Doctrine/ODM](https://www.doctrine-project.org/projects/mongodb-odm) to Nette Framework.
 
 
 ## Content
@@ -52,7 +52,7 @@ extensions:
   nettrine.mongodb: Nettrine\MongoDB\DI\MongoDBExtension
 ```
 
-[Doctrine ODM](https://www.doctrine-project.org/projects/doctrine-mongodb-odm) needs [MongoDB PHP Library](https://github.com/mongodb/mongo-php-library) to be configured. If you register `nettrine/mongodb` extension it will detect it automatically.
+[Doctrine ODM](https://www.doctrine-project.org/projects/mongodb-odm) needs [MongoDB PHP Library](https://github.com/mongodb/mongo-php-library) to be configured. If you register `nettrine/mongodb` extension it will detect it automatically.
 
 > MongoDB PHP Library provides a high-level abstraction around the lower-level PHP driver (mongodb extension).
 
@@ -70,7 +70,7 @@ extensions:
   nettrine.cache: Nettrine\Cache\DI\CacheExtension
 ```
 
-[Doctrine ODM](https://www.doctrine-project.org/projects/doctrine-mongodb-odm) needs [Doctrine Cache](https://www.doctrine-project.org/projects/cache.html) to be configured. If you register `nettrine/cache` extension it will detect it automatically.
+[Doctrine ODM](https://www.doctrine-project.org/projects/mongodb-odm) needs [Doctrine Cache](https://www.doctrine-project.org/projects/cache.html) to be configured. If you register `nettrine/cache` extension it will detect it automatically.
 
 `CacheExtension` sets up cache for all important parts: `metadataCache`.
 
