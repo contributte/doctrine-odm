@@ -29,10 +29,12 @@ final class OdmCacheExtension extends AbstractExtension
 
 	public function getConfigSchema(): Schema
 	{
-		return Expect::structure([
-			'defaultDriver' => $this->getServiceSchema(),
-			'metadataCache' => $this->getServiceSchema(),
-		]);
+		return Expect::structure(
+			[
+				'defaultDriver' => $this->getServiceSchema(),
+				'metadataCache' => $this->getServiceSchema(),
+			]
+		);
 	}
 
 	public function loadConfiguration(): void
@@ -48,9 +50,12 @@ final class OdmCacheExtension extends AbstractExtension
 		$config = $this->config;
 		$configurationDef = $this->getConfigurationDef();
 
-		$configurationDef->addSetup('setMetadataCacheImpl', [
-			$this->loadSpecificDriver($config->metadataCache, 'metadataCache'),
-		]);
+		$configurationDef->addSetup(
+			'setMetadataCacheImpl',
+			[
+				$this->loadSpecificDriver($config->metadataCache, 'metadataCache'),
+			]
+		);
 	}
 
 	/**
@@ -90,7 +95,10 @@ final class OdmCacheExtension extends AbstractExtension
 		}
 
 		$defaultDriverName = $this->prefix('defaultCache');
-		$this->defaultDriverDef = $defaultDriverDef = $this->getHelper()->getDefinitionFromConfig($config->defaultDriver, $defaultDriverName);
+		$this->defaultDriverDef = $defaultDriverDef = $this->getHelper()->getDefinitionFromConfig(
+			$config->defaultDriver,
+			$defaultDriverName
+		);
 
 		// If service is extension specific, then disable autowiring
 		if ($defaultDriverDef instanceof Definition && $defaultDriverDef->getName() === $defaultDriverName) {

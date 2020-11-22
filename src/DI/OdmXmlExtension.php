@@ -15,10 +15,12 @@ final class OdmXmlExtension extends AbstractExtension
 
 	public function getConfigSchema(): Schema
 	{
-		return Expect::structure([
-			'paths' => Expect::listOf('string'),
-			'fileExtension' => Expect::string(XmlDriver::DEFAULT_FILE_EXTENSION),
-		]);
+		return Expect::structure(
+			[
+				'paths' => Expect::listOf('string'),
+				'fileExtension' => Expect::string(XmlDriver::DEFAULT_FILE_EXTENSION),
+			]
+		);
 	}
 
 	/**
@@ -33,10 +35,13 @@ final class OdmXmlExtension extends AbstractExtension
 		$config = $this->config;
 
 		$builder->addDefinition($this->prefix('xmlDriver'))
-			->setFactory(XmlDriver::class, [
-				$config->paths,
-				$config->fileExtension,
-			]);
+			->setFactory(
+				XmlDriver::class,
+				[
+						$config->paths,
+						$config->fileExtension,
+					]
+			);
 
 		$configurationDef = $this->getConfigurationDef();
 		$configurationDef->addSetup('setMetadataDriverImpl', [$this->prefix('@xmlDriver')]);

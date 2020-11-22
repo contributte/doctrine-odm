@@ -28,35 +28,33 @@ final class OdmExtension extends AbstractExtension
 		return Expect::structure(
 			[
 				'configurationClass' => Expect::string(Configuration::class),
-				'configuration'      => Expect::structure(
+				'configuration' => Expect::structure(
 					[
 						'autoGenerateProxyClasses' => Expect::anyOf(
 							Expect::int(),
 							Expect::bool(),
 							Expect::type(Statement::class)
 						)->default(Configuration::AUTOGENERATE_FILE_NOT_EXISTS),
-						'defaultDB'                => Expect::string('example'),
-						'hydratorDir'              => Expect::string($hydratorDir)->nullable(),
-						'hydratorNamespace'        => Expect::string('Nettrine\ODM\Hydrator')->nullable(),
-						'proxyDir'                 => Expect::string($proxyDir)->nullable(),
-						'proxyNamespace'           => Expect::string('Nettrine\ODM\Proxy')->nullable(),
-						'metadataDriverImpl'       => Expect::string(),
+						'defaultDB' => Expect::string('example'),
+						'hydratorDir' => Expect::string($hydratorDir)->nullable(),
+						'hydratorNamespace' => Expect::string('Nettrine\ODM\Hydrator')->nullable(),
+						'proxyDir' => Expect::string($proxyDir)->nullable(),
+						'proxyNamespace' => Expect::string('Nettrine\ODM\Proxy')->nullable(),
+						'metadataDriverImpl' => Expect::string(),
 						'classMetadataFactoryName' => Expect::string(),
-						'repositoryFactory'        => Expect::string(),
+						'repositoryFactory' => Expect::string(),
 					]
 				),
-				'types'              => Expect::array(),
+				'types' => Expect::array(),
 			]
 		);
 	}
-
 
 	public function loadConfiguration(): void
 	{
 		$this->loadDoctrineConfiguration();
 		$this->loadEntityManagerConfiguration();
 	}
-
 
 	public function loadDoctrineConfiguration(): void
 	{
@@ -133,7 +131,6 @@ final class OdmExtension extends AbstractExtension
 		}
 	}
 
-
 	public function loadEntityManagerConfiguration(): void
 	{
 		$builder = $this->getContainerBuilder();
@@ -145,9 +142,9 @@ final class OdmExtension extends AbstractExtension
 			->setFactory(
 				DocumentManager::class . '::create',
 				[
-					$builder->getDefinitionByType(Client::class),
-					$this->prefix('@configuration'),
-				]
+						$builder->getDefinitionByType(Client::class),
+						$this->prefix('@configuration'),
+					]
 			);
 	}
 

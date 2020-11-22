@@ -26,7 +26,6 @@ final class OdmConsoleExtension extends AbstractExtension
 		$this->cliMode = $cliMode ?? PHP_SAPI === 'cli';
 	}
 
-
 	public function loadConfiguration(): void
 	{
 		// Validates needed extension
@@ -84,7 +83,6 @@ final class OdmConsoleExtension extends AbstractExtension
 			->addTag('console.command', 'odm:clear-cache:metadata')
 			->setAutowired(false);
 	}
-
 
 	/**
 	 * Decorate services
