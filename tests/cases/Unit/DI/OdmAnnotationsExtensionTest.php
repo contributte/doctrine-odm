@@ -12,14 +12,21 @@ use Nettrine\Cache\DI\CacheExtension;
 use Nettrine\MongoDB\DI\MongoDBExtension;
 use Nettrine\ODM\DI\OdmAnnotationsExtension;
 use Nettrine\ODM\DI\OdmExtension;
-use Tests\Toolkit\TestCase;
+use Tester\Assert;
+use Tester\TestCase;
 
+require_once __DIR__ . '/../../../bootstrap.php';
+
+
+/**
+ * @testCase
+ */
 final class OdmAnnotationsExtensionTest extends TestCase
 {
 
 	public function testOk(): void
 	{
-		$loader = new ContainerLoader(TEMP_PATH, true);
+		$loader = new ContainerLoader(TEMP_DIR, true);
 		$class = $loader->load(
 			static function (Compiler $compiler): void {
 				$compiler->addExtension('annotations', new AnnotationsExtension());
@@ -27,43 +34,56 @@ final class OdmAnnotationsExtensionTest extends TestCase
 				$compiler->addExtension('mongodb', new MongoDBExtension());
 				$compiler->addExtension('odm', new OdmExtension());
 				$compiler->addExtension('odm.annotations', new OdmAnnotationsExtension());
-				$compiler->addConfig([
-				'parameters' => [
-					'tempDir' => TEMP_PATH,
-					'appDir' => __DIR__,
-				],
-				]);
+				$compiler->addConfig(
+					[
+						'parameters' => [
+							'tempDir' => TEMP_DIR,
+							'appDir' => __DIR__,
+						],
+					]
+				);
 			},
-			self::class . __METHOD__
+			[getmypid(), 1]
 		);
 
 		/** @var Container $container */
 		$container = new $class();
 
-		$this->assertInstanceOf(AnnotationDriver::class, $container->getService('odm.annotations.annotationDriver'));
+		Assert::type(AnnotationDriver::class, $container->getService('odm.annotations.annotationDriver'));
 	}
 
 	public function testNoReader(): void
 	{
-		$this->expectException(MissingServiceException::class);
-		$this->expectExceptionMessageMatches("#Service of type 'Doctrine\\\Common\\\Annotations\\\Reader' not found\.#");
+		Assert::exception(
+			function (): void {
+				$loader = new ContainerLoader(TEMP_DIR, true);
+				$class = $loader->load(
+					static function (Compiler $compiler): void {
+						$compiler->addExtension('cache', new CacheExtension());
+						$compiler->addExtension('mongodb', new MongoDBExtension());
+						$compiler->addExtension('odm', new OdmExtension());
+						$compiler->addExtension('odm.annotations', new OdmAnnotationsExtension());
+						$compiler->addConfig(
+							[
+								'parameters' => [
+									'tempDir' => TEMP_DIR,
+									'appDir' => __DIR__,
+								],
+							]
+						);
+					},
+					[getmypid(), 2]
+				);
 
-		$loader = new ContainerLoader(TEMP_PATH, true);
-		$class = $loader->load(static function (Compiler $compiler): void {
-			$compiler->addExtension('cache', new CacheExtension());
-			$compiler->addExtension('mongodb', new MongoDBExtension());
-			$compiler->addExtension('odm', new OdmExtension());
-			$compiler->addExtension('odm.annotations', new OdmAnnotationsExtension());
-			$compiler->addConfig([
-				'parameters' => [
-					'tempDir' => TEMP_PATH,
-					'appDir' => __DIR__,
-				],
-			]);
-		}, self::class . __METHOD__);
-
-		/** @var Container $container */
-		$container = new $class();
+				/** @var Container $container */
+				$container = new $class();
+			},
+			MissingServiceException::class,
+			"#Service of type 'Doctrine\\\Common\\\Annotations\\\Reader' not found\.#"
+		);
 	}
 
 }
+
+
+(new OdmAnnotationsExtensionTest())->run();

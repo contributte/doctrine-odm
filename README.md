@@ -1,50 +1,60 @@
-# Nettrine ODM
+![Nettrine ODM](https://heatbadger.now.sh/github/readme/nettrine/odm/)
 
-[Doctrine/ODM](https://www.doctrine-project.org/projects/mongodb-odm) to Nette Framework.
+<p align=center>
+  <a href="https://github.com/nettrine/odm/actions">
+    <img src="https://badgen.net/github/checks/nettrine/odm/master?cache=300">
+  </a>
+  <a href="https://coveralls.io/r/nettrine/odm">
+    <img src="https://badgen.net/coveralls/c/github/nettrine/odm?cache=300">
+  </a>
+  <a href="https://packagist.org/packages/nettrine/odm">
+    <img src="https://badgen.net/packagist/dm/nettrine/odm">
+  </a>
+  <a href="https://packagist.org/packages/nettrine/odm">
+    <img src="https://badgen.net/packagist/v/nettrine/odm">
+  </a>
+  <a href="http://bit.ly/ctteg">
+    <img src="https://badgen.net/badge/chat/gitter/cyan">
+  </a>
+  <a href="https://contributte.org/partners.html">
+    <img src="https://badgen.net/badge/become/a%20patron/F96854">
+  </a>
+<p>
 
-[![Build Status](https://img.shields.io/travis/nettrine/odm.svg?style=flat-square)](https://travis-ci.org/nettrine/odm)
-[![Code coverage](https://img.shields.io/coveralls/nettrine/odm.svg?style=flat-square)](https://coveralls.io/r/nettrine/odm)
-[![Licence](https://img.shields.io/packagist/l/nettrine/odm.svg?style=flat-square)](https://packagist.org/packages/nettrine/odm)
-[![Downloads this Month](https://img.shields.io/packagist/dm/nettrine/odm.svg?style=flat-square)](https://packagist.org/packages/nettrine/odm)
-[![Downloads total](https://img.shields.io/packagist/dt/nettrine/odm.svg?style=flat-square)](https://packagist.org/packages/nettrine/odm)
-[![Latest stable](https://img.shields.io/packagist/v/nettrine/odm.svg?style=flat-square)](https://packagist.org/packages/nettrine/odm)
-[![PHPStan](https://img.shields.io/badge/PHPStan-enabled-brightgreen.svg?style=flat-square)](https://github.com/phpstan/phpstan)
+<p align=center>
+Website 🚀 <a href="https://contributte.org">contributte.org</a> | Contact 👨🏻‍💻 <a href="https://f3l1x.io">f3l1x.io</a> | Twitter 🐦 <a href="https://twitter.com/contributte">@contributte</a>
+</p>
 
-## Discussion / Help
+## Usage
 
-[![Join the chat](https://img.shields.io/gitter/room/nettrine/nettrine.svg?style=flat-square)](https://gitter.im/nettrine/nettrine)
+To install the latest version of `nettrine/odm` use [Composer](https://getcomposer.com).
+
+```
+composer require nettrine/odm
+```
 
 ## Documentation
 
-- [Setup](.docs/README.md#setup)
-- [Relying](.docs/README.md#relying)
-- [Configuration](.docs/README.md#configuration)
-- [Mapping](.docs/README.md#mapping)
-  - [Annotations](.docs/README.md#annotations)
-  - [XML](.docs/README.md#xml)
-  - [Helpers](.docs/README.md#helpers)
-- [Examples](.docs/README.md#examples)
+For details on how to use this package, check out our [documentation](.docs).
 
 ## Versions
 
-| State       | Version     | Branch   | Nette  | PHP    |
-|-------------|-------------|----------|--------|--------|
-| dev         | `^0.1`      | `master` | `3.0+` | `^7.3` |
+| State       | Version     | Branch   | Nette  | PHP     |
+|-------------|-------------|----------|--------|---------|
+| dev         | `^0.2`      | `master` | `3.0+` | `>=7.4` |
+| stable      | `^0.1`      | `master` | `3.0+` | `>=7.3` |
 
-## Maintainers
+## Development
 
-<table>
-  <tbody>
-    <tr>
-      <td align="center">
-        <a href="https://github.com/solcik">
-            <img width="150" height="150" src="https://avatars2.githubusercontent.com/u/1543737?v=3&s=150">
-        </a>
-        </br>
-        <a href="https://github.com/solcik">David Šolc</a>
-      </td>
-    </tr>
-  </tbody>
-</table>
+See [how to contribute](https://contributte.org/contributing.html) to this package.
 
-Thank you for testing, reporting and contributing.
+This package is currently maintaining by these authors.
+
+<a href="https://github.com/solcik">
+  <img width="80" height="80" src="https://avatars2.githubusercontent.com/u/1543737?v=3&s=80">
+</a>
+
+-----
+
+Consider to [support](https://contributte.org/partners.html) **contributte** development team.
+Also thank you for using this package.

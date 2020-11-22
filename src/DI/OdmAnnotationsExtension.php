@@ -17,10 +17,12 @@ final class OdmAnnotationsExtension extends AbstractExtension
 
 	public function getConfigSchema(): Schema
 	{
-		return Expect::structure([
-			'paths' => Expect::listOf('string'),
-			'excludePaths' => Expect::listOf('string'),
-		]);
+		return Expect::structure(
+			[
+				'paths' => Expect::listOf('string'),
+				'excludePaths' => Expect::listOf('string'),
+			]
+		);
 	}
 
 	/**

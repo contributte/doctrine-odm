@@ -15,8 +15,7 @@
 			<property name="rootNamespaces" type="array" value="
 				src=>Nettrine\ODM,
 				tests/cases=>Tests\Cases,
-				tests/fixtures=>Tests\Fixtures,
-				tests/toolkit=>Tests\Toolkit
+				tests/fixtures=>Tests\Fixtures
 			"/>
 		</properties>
 	</rule>
