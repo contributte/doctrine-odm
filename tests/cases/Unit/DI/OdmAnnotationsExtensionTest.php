@@ -75,8 +75,7 @@ final class OdmAnnotationsExtensionTest extends TestCase
 					[getmypid(), 2]
 				);
 
-				/** @var Container $container */
-				$container = new $class();
+				new $class();
 			},
 			MissingServiceException::class,
 			"#Service of type 'Doctrine\\\Common\\\Annotations\\\Reader' not found\.#"
