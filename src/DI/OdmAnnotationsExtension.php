@@ -3,8 +3,8 @@
 namespace Nettrine\ODM\DI;
 
 use Doctrine\Common\Annotations\Reader;
-use Doctrine\Common\Persistence\Mapping\Driver\MappingDriver;
 use Doctrine\ODM\MongoDB\Mapping\Driver\AnnotationDriver;
+use Doctrine\Persistence\Mapping\Driver\MappingDriver;
 use Nette\Schema\Expect;
 use Nette\Schema\Schema;
 use stdClass;

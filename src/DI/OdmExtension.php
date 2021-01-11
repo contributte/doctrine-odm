@@ -134,7 +134,6 @@ final class OdmExtension extends AbstractExtension
 	public function loadEntityManagerConfiguration(): void
 	{
 		$builder = $this->getContainerBuilder();
-		$config = $this->config;
 
 		// Document Manager
 		$builder->addDefinition($this->prefix('documentManager'))
