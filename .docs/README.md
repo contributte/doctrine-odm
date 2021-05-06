@@ -108,7 +108,7 @@ extensions:
 
 Since this moment when you type `bin/console`, there'll be registered commands from Doctrine DBAL.
 
-```terminal
+```sh
  odm
   odm:clear-cache:metadata    Clear all metadata cache of the various cache drivers.
   odm:generate:hydrators      Generates hydrator classes for document classes.
