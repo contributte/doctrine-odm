@@ -6,7 +6,7 @@ on:
       - ".docs/**"
   push:
     branches:
-      - "master"
+      - "*"
   schedule:
     - cron: "0 8 * * 1" # At 08:00 on Monday
 
@@ -51,7 +51,7 @@ jobs:
         with:
           php-version: "${{ matrix.php-version }}"
           extensions: "${{ env.extensions }}"
-          tools: "composer:${{ env.composer-version }} "
+          tools: "composer:${{ env.composer-version }} , cs2pr"
 
       - name: "Setup problem matchers for PHP"
         run: 'echo "::add-matcher::${{ runner.tool_cache }}/php.json"'
@@ -257,7 +257,7 @@ jobs:
         run: "${{ env.composer-install }}"
 
       - name: "Tests"
-        run: "make coverage"
+        run: "make coverage-clover"
 
       - name: "Coveralls.io"
         env:
