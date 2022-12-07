@@ -17,7 +17,7 @@
     "contributte/di": "^0.5",
     "doctrine/cache": "^1.10",
     "doctrine/mongodb-odm": "^2.0",
-    "doctrine/persistence": "^2.1",
+    "doctrine/persistence": "^2.4 || ^3.0",
     "mongodb/mongodb": "^1.5",
     "nette/di": "^3.0",
     "nette/schema": "^1.1",
