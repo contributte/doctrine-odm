@@ -1,14 +1,14 @@
-![Nettrine ODM](https://heatbadger.now.sh/github/readme/nettrine/odm/)
+![Nettrine ODM](https://heatbadger.now.sh/github/readme/contributte/doctrine-odm/)
 
 <p align=center>
-    <a href="https://github.com/nettrine/odm/actions"><img src="https://badgen.net/github/checks/nettrine/odm"></a>
+    <a href="https://github.com/contributte/doctrine-odm/actions"><img src="https://badgen.net/github/checks/nettrine/odm"></a>
     <a href="https://coveralls.io/r/nettrine/odm"><img src="https://badgen.net/coveralls/c/github/nettrine/odm"></a>
     <a href="https://packagist.org/packages/nettrine/odm"><img src="https://badgen.net/packagist/dm/nettrine/odm"></a>
     <a href="https://packagist.org/packages/nettrine/odm"><img src="https://badgen.net/packagist/v/nettrine/odm"></a>
 </p>
 <p align=center>
     <a href="https://packagist.org/packages/nettrine/odm"><img src="https://badgen.net/packagist/php/nettrine/odm"></a>
-    <a href="https://github.com/nettrine/odm"><img src="https://badgen.net/github/license/nettrine/odm"></a>
+    <a href="https://github.com/contributte/doctrine-odm"><img src="https://badgen.net/github/license/contributte/doctrine-odm"></a>
     <a href="https://bit.ly/ctteg"><img src="https://badgen.net/badge/support/gitter/cyan"></a>
     <a href="https://bit.ly/cttfo"><img src="https://badgen.net/badge/support/forum/yellow"></a>
     <a href="https://contributte.org/partners.html"><img src="https://badgen.net/badge/sponsor/donations/F96854"></a>

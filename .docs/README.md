@@ -1,4 +1,4 @@
-# Nettrine ODM
+# Contributte Doctrine ODM
 
 [Doctrine/ODM](https://www.doctrine-project.org/projects/mongodb-odm) to Nette Framework.
 
@@ -41,7 +41,7 @@ Take advantage of enpowering this package with 3 extra packages:
 
 ### `mongodb/mongodb`
 
-This package relies on `mongodb/mongodb`, use prepared [nettrine/mongodb](https://github.com/nettrine/mongodb) integration.
+This package relies on `mongodb/mongodb`, use prepared [nettrine/mongodb](https://github.com/contributte/doctrine-mongodb) integration.
 
 ```bash
 composer require nettrine/mongodb
@@ -59,7 +59,7 @@ extensions:
 
 ### `doctrine/cache`
 
-This package relies on `doctrine/cache`, use prepared [nettrine/cache](https://github.com/nettrine/cache) integration.
+This package relies on `doctrine/cache`, use prepared [nettrine/cache](https://github.com/contributte/doctrine-cache) integration.
 
 ```bash
 composer require nettrine/cache
@@ -180,7 +180,7 @@ class Article
 }
 ```
 
-This feature relies on `doctrine/annotations`, use prepared [nettrine/annotations](https://github.com/nettrine/annotations) integration.
+This feature relies on `doctrine/annotations`, use prepared [nettrine/annotations](https://github.com/contributte/doctrine-annotations) integration.
 
 ```bash
 composer require nettrine/annotations

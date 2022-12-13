@@ -4,7 +4,7 @@
   "keywords": ["nette", "doctrine", "odm", "database", "document"],
   "type": "library",
   "license": "MIT",
-  "homepage": "https://github.com/nettrine/odm",
+  "homepage": "https://github.com/contributte/doctrine-odm",
   "authors": [
     {
       "name": "David Šolc",
