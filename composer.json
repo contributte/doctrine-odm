@@ -25,13 +25,13 @@
     "nettrine/cache": "^0.3 || ^0.4"
   },
   "require-dev": {
-    "ninjify/qa": "^0.12.1",
+    "ninjify/qa": "^0.13",
     "ninjify/nunjuck": "^0.4.0",
-    "phpstan/extension-installer": "^1.1.0",
-    "phpstan/phpstan": "^0.12.65",
-    "phpstan/phpstan-deprecation-rules": "^0.12.6",
-    "phpstan/phpstan-nette": "^0.12.14",
-    "phpstan/phpstan-strict-rules": "^0.12.7",
+    "phpstan/extension-installer": "^1.2",
+    "phpstan/phpstan": "^1.9",
+    "phpstan/phpstan-deprecation-rules": "^1.1",
+    "phpstan/phpstan-nette": "^1.2",
+    "phpstan/phpstan-strict-rules": "^1.4",
     "nettrine/mongodb": "^0.1.0",
     "nette/tester": "^2.3.4"
   },
@@ -52,7 +52,11 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "config": {
-    "sort-packages": true
+    "sort-packages": true,
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "phpstan/extension-installer": true
+    }
   },
   "extra": {
     "branch-alias": {
