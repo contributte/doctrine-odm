@@ -16,12 +16,6 @@
 
 ## Setup
 
-Install package
-
-```bash
-composer require nettrine/odm
-```
-
 Register extension
 
 ```yaml
