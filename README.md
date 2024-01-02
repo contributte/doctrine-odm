@@ -20,7 +20,7 @@
 
 ## Usage
 
-To install latest version of `nettrine/odm` use [Composer](https://getcomposer.com).
+To install latest version of `nettrine/odm` use [Composer](https://getcomposer.org).
 
 ```
 composer require nettrine/odm
