@@ -15,17 +15,7 @@ use stdClass;
 final class OdmCacheExtension extends AbstractExtension
 {
 
-	/** @var Definition|string|null */
-	private $defaultDriverDef;
-
-	private function getServiceSchema(): Schema
-	{
-		return Expect::anyOf(
-			Expect::string(),
-			Expect::array(),
-			Expect::type(Statement::class)
-		)->nullable();
-	}
+	private Definition|string|null $defaultDriverDef = null;
 
 	public function getConfigSchema(): Schema
 	{
@@ -45,6 +35,15 @@ final class OdmCacheExtension extends AbstractExtension
 		$this->loadMetadataCacheConfiguration();
 	}
 
+	private function getServiceSchema(): Schema
+	{
+		return Expect::anyOf(
+			Expect::string(),
+			Expect::array(),
+			Expect::type(Statement::class)
+		)->nullable();
+	}
+
 	private function loadMetadataCacheConfiguration(): void
 	{
 		$config = $this->config;
@@ -60,9 +59,8 @@ final class OdmCacheExtension extends AbstractExtension
 
 	/**
 	 * @param string|mixed[]|Statement|null $config
-	 * @return Definition|string
 	 */
-	private function loadSpecificDriver($config, string $prefix)
+	private function loadSpecificDriver(string|array|Statement|null $config, string $prefix): Definition|string
 	{
 		if ($config !== null && $config !== []) { // Nette converts explicit null to an empty array
 			$driverName = $this->prefix($prefix);
@@ -79,10 +77,7 @@ final class OdmCacheExtension extends AbstractExtension
 		return $this->loadDefaultDriver();
 	}
 
-	/**
-	 * @return Definition|string
-	 */
-	private function loadDefaultDriver()
+	private function loadDefaultDriver(): Definition|string
 	{
 		$config = $this->config;
 
