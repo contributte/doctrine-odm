@@ -12,28 +12,23 @@
     }
   ],
   "require": {
-    "php": ">=7.3",
+    "php": ">=8.2",
     "ext-mongodb": "*",
-    "contributte/di": "^0.5",
-    "doctrine/cache": "^1.10",
-    "doctrine/mongodb-odm": "^2.0",
-    "doctrine/persistence": "^2.4 || ^3.0",
-    "mongodb/mongodb": "^1.5",
-    "nette/di": "^3.0",
-    "nette/schema": "^1.1",
-    "nettrine/annotations": "^0.7 || ^0.8",
-    "nettrine/cache": "^0.3 || ^0.4"
+    "contributte/di": "^0.5.0",
+    "doctrine/cache": "^1.10.0",
+    "doctrine/mongodb-odm": "^2.0.0",
+    "doctrine/persistence": "^2.4.0 || ^3.0.0",
+    "mongodb/mongodb": "^2.1.0",
+    "nette/di": "^3.0.0",
+    "nette/schema": "^1.1.0",
+    "nettrine/annotations": "^0.7.0 || ^0.8.0",
+    "nettrine/cache": "^0.3.0 || ^0.4.0"
   },
   "require-dev": {
-    "ninjify/qa": "^0.12.1",
-    "ninjify/nunjuck": "^0.4.0",
-    "phpstan/extension-installer": "^1.1.0",
-    "phpstan/phpstan": "^0.12.65",
-    "phpstan/phpstan-deprecation-rules": "^0.12.6",
-    "phpstan/phpstan-nette": "^0.12.14",
-    "phpstan/phpstan-strict-rules": "^0.12.7",
-    "nettrine/mongodb": "^0.1.0",
-    "nette/tester": "^2.3.4"
+    "contributte/phpstan": "^0.2.0",
+    "contributte/qa": "^0.4.0",
+    "contributte/tester": "^0.3.0",
+    "nettrine/mongodb": "^0.2.1"
   },
   "suggest": {
     "symfony/console": "Required to use Symfony Console commands."
@@ -45,8 +40,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Tests\\Cases\\": "tests/cases",
-      "Tests\\Fixtures\\": "tests/fixtures"
+      "Tests\\": "tests"
     }
   },
   "minimum-stability": "dev",
