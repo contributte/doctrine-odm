@@ -7,6 +7,7 @@ use Nette\DI\Definitions\Definition;
 use Nette\DI\Definitions\Statement;
 use Nette\Schema\Expect;
 use Nette\Schema\Schema;
+use Nettrine\ODM\DI\Helpers\SmartStatement;
 use stdClass;
 
 /**
@@ -59,13 +60,10 @@ final class OdmCacheExtension extends AbstractExtension
 	private function loadSpecificDriver(string|Statement|null $config, string $prefix): Definition|string
 	{
 		if ($config !== null) {
-			$driverName = $this->prefix($prefix);
-			$driverDef = $this->getDefinitionFromConfig($config, $driverName);
-
-			// If service is extension specific, then disable autowiring
-			if ($driverDef instanceof Definition && $driverDef->getName() === $driverName) {
-				$driverDef->setAutowired(false);
-			}
+			$builder = $this->getContainerBuilder();
+			$driverDef = $builder->addDefinition($this->prefix($prefix));
+			$driverDef->setFactory(SmartStatement::from($config));
+			$driverDef->setAutowired(false);
 
 			return $driverDef;
 		}
@@ -75,28 +73,22 @@ final class OdmCacheExtension extends AbstractExtension
 
 	private function loadDefaultDriver(): Definition|string
 	{
-		$config = $this->config;
-
 		if ($this->defaultDriverDef !== null) {
 			return $this->defaultDriverDef;
 		}
+
+		$config = $this->config;
 
 		if ($config->defaultDriver === null) {
 			return $this->defaultDriverDef = '@' . Cache::class;
 		}
 
-		$defaultDriverName = $this->prefix('defaultCache');
-		$this->defaultDriverDef = $defaultDriverDef = $this->getDefinitionFromConfig(
-			$config->defaultDriver,
-			$defaultDriverName
-		);
+		$builder = $this->getContainerBuilder();
+		$defaultDriverDef = $builder->addDefinition($this->prefix('defaultCache'));
+		$defaultDriverDef->setFactory(SmartStatement::from($config->defaultDriver));
+		$defaultDriverDef->setAutowired(false);
 
-		// If service is extension specific, then disable autowiring
-		if ($defaultDriverDef instanceof Definition && $defaultDriverDef->getName() === $defaultDriverName) {
-			$defaultDriverDef->setAutowired(false);
-		}
-
-		return $defaultDriverDef;
+		return $this->defaultDriverDef = $defaultDriverDef;
 	}
 
 }
