@@ -34,20 +34,4 @@ abstract class AbstractExtension extends CompilerExtension
 		return $def;
 	}
 
-	protected function getDefinitionFromConfig(string|Statement $config, string $name): Definition|string
-	{
-		// Reference to existing service
-		if (is_string($config) && str_starts_with($config, '@')) {
-			return $config;
-		}
-
-		// Class name or Statement
-		$statement = SmartStatement::from($config);
-
-		$def = $this->getContainerBuilder()->addDefinition($name);
-		$def->setFactory($statement);
-
-		return $def;
-	}
-
 }
