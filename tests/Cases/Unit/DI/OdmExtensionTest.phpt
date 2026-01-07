@@ -34,6 +34,9 @@ Toolkit::test(static function (): void {
 					'tempDir' => Environment::getTestDir(),
 					'appDir' => __DIR__,
 				],
+				'annotations' => [
+					'cache' => '@cache.adapter',
+				],
 			]);
 		})
 		->build();
@@ -58,6 +61,9 @@ Toolkit::test(static function (): void {
 					'tempDir' => Environment::getTestDir(),
 					'appDir' => __DIR__,
 				],
+				'annotations' => [
+					'cache' => '@cache.adapter',
+				],
 			]);
 		})
 		->build();
@@ -78,6 +84,9 @@ Toolkit::test(static function (): void {
 				'parameters' => [
 					'tempDir' => Environment::getTestDir(),
 					'appDir' => __DIR__,
+				],
+				'annotations' => [
+					'cache' => '@cache.adapter',
 				],
 				'odm' => [
 					'configurationClass' => DummyConfiguration::class,
