@@ -2,8 +2,7 @@
 
 namespace Nettrine\ODM\DI;
 
-use Doctrine\Common\Annotations\Reader;
-use Doctrine\ODM\MongoDB\Mapping\Driver\AnnotationDriver;
+use Doctrine\ODM\MongoDB\Mapping\Driver\AttributeDriver;
 use Doctrine\Persistence\Mapping\Driver\MappingDriver;
 use Nette\Schema\Expect;
 use Nette\Schema\Schema;
@@ -12,7 +11,7 @@ use stdClass;
 /**
  * @property-read stdClass $config
  */
-final class OdmAnnotationsExtension extends AbstractExtension
+final class OdmAttributesExtension extends AbstractExtension
 {
 
 	public function getConfigSchema(): Schema
@@ -25,9 +24,6 @@ final class OdmAnnotationsExtension extends AbstractExtension
 		);
 	}
 
-	/**
-	 * Register services
-	 */
 	public function loadConfiguration(): void
 	{
 		// Validates needed extension
@@ -36,13 +32,13 @@ final class OdmAnnotationsExtension extends AbstractExtension
 		$builder = $this->getContainerBuilder();
 		$config = $this->config;
 
-		$builder->addDefinition($this->prefix('annotationDriver'))
+		$builder->addDefinition($this->prefix('attributeDriver'))
 			->setType(MappingDriver::class)
-			->setFactory(AnnotationDriver::class, [$builder->getDefinitionByType(Reader::class), $config->paths])
+			->setFactory(AttributeDriver::class, [$config->paths])
 			->addSetup('addExcludePaths', [$config->excludePaths]);
 
 		$configurationDef = $this->getConfigurationDef();
-		$configurationDef->addSetup('setMetadataDriverImpl', [$this->prefix('@annotationDriver')]);
+		$configurationDef->addSetup('setMetadataDriverImpl', [$this->prefix('@attributeDriver')]);
 	}
 
 }
