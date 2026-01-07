@@ -8,10 +8,9 @@ use Contributte\Tester\Utils\ContainerBuilder;
 use Doctrine\Common\Cache\Cache;
 use Doctrine\ODM\MongoDB\DocumentManager;
 use Nette\DI\ServiceCreationException;
-use Nettrine\Annotations\DI\AnnotationsExtension;
 use Nettrine\Cache\DI\CacheExtension;
 use Nettrine\MongoDB\DI\MongoDBExtension;
-use Nettrine\ODM\DI\OdmAnnotationsExtension;
+use Nettrine\ODM\DI\OdmAttributesExtension;
 use Nettrine\ODM\DI\OdmCacheExtension;
 use Nettrine\ODM\DI\OdmExtension;
 use Symfony\Component\Cache\Adapter\ArrayAdapter;
@@ -24,19 +23,15 @@ require_once __DIR__ . '/../../../bootstrap.php';
 Toolkit::test(static function (): void {
 	$container = ContainerBuilder::of()
 		->withCompiler(static function ($compiler): void {
-			$compiler->addExtension('annotations', new AnnotationsExtension());
 			$compiler->addExtension('cache', new CacheExtension());
 			$compiler->addExtension('mongodb', new MongoDBExtension());
 			$compiler->addExtension('odm', new OdmExtension());
-			$compiler->addExtension('odm.annotations', new OdmAnnotationsExtension());
+			$compiler->addExtension('odm.attributes', new OdmAttributesExtension());
 			$compiler->addExtension('odm.cache', new OdmCacheExtension());
 			$compiler->addConfig([
 				'parameters' => [
 					'tempDir' => Environment::getTestDir(),
 					'appDir' => __DIR__,
-				],
-				'annotations' => [
-					'cache' => '@cache.adapter',
 				],
 			]);
 		})
@@ -52,19 +47,15 @@ Toolkit::test(static function (): void {
 Toolkit::test(static function (): void {
 	$container = ContainerBuilder::of()
 		->withCompiler(static function ($compiler): void {
-			$compiler->addExtension('annotations', new AnnotationsExtension());
 			$compiler->addExtension('cache', new CacheExtension());
 			$compiler->addExtension('mongodb', new MongoDBExtension());
 			$compiler->addExtension('odm', new OdmExtension());
-			$compiler->addExtension('odm.annotations', new OdmAnnotationsExtension());
+			$compiler->addExtension('odm.attributes', new OdmAttributesExtension());
 			$compiler->addExtension('odm.cache', new OdmCacheExtension());
 			$compiler->addConfig([
 				'parameters' => [
 					'tempDir' => Environment::getTestDir(),
 					'appDir' => __DIR__,
-				],
-				'annotations' => [
-					'cache' => '@cache.adapter',
 				],
 				'odm.cache' => [
 					'defaultDriver' => ArrayAdapter::class,
@@ -86,18 +77,14 @@ Toolkit::test(static function (): void {
 		static function (): void {
 			ContainerBuilder::of()
 				->withCompiler(static function ($compiler): void {
-					$compiler->addExtension('annotations', new AnnotationsExtension());
 					$compiler->addExtension('mongodb', new MongoDBExtension());
 					$compiler->addExtension('odm', new OdmExtension());
-					$compiler->addExtension('odm.annotations', new OdmAnnotationsExtension());
+					$compiler->addExtension('odm.attributes', new OdmAttributesExtension());
 					$compiler->addExtension('odm.cache', new OdmCacheExtension());
 					$compiler->addConfig([
 						'parameters' => [
 							'tempDir' => Environment::getTestDir(),
 							'appDir' => __DIR__,
-						],
-						'annotations' => [
-							'cache' => NullAdapter::class,
 						],
 					]);
 				})
