@@ -13,8 +13,6 @@ use Nettrine\MongoDB\DI\MongoDBExtension;
 use Nettrine\ODM\DI\OdmAttributesExtension;
 use Nettrine\ODM\DI\OdmCacheExtension;
 use Nettrine\ODM\DI\OdmExtension;
-use Symfony\Component\Cache\Adapter\ArrayAdapter;
-use Symfony\Component\Cache\Adapter\NullAdapter;
 use Tester\Assert;
 
 require_once __DIR__ . '/../../../bootstrap.php';
@@ -58,8 +56,7 @@ Toolkit::test(static function (): void {
 					'appDir' => __DIR__,
 				],
 				'odm.cache' => [
-					'defaultDriver' => ArrayAdapter::class,
-					'metadataCache' => NullAdapter::class,
+					'metadataCache' => '@cache.driver',
 				],
 			]);
 		})
@@ -68,7 +65,7 @@ Toolkit::test(static function (): void {
 	/** @var DocumentManager $dm */
 	$dm = $container->getByType(DocumentManager::class);
 
-	Assert::type(NullAdapter::class, $dm->getConfiguration()->getMetadataCacheImpl());
+	Assert::type(Cache::class, $dm->getConfiguration()->getMetadataCacheImpl());
 });
 
 // Test NoCacheDriver
