@@ -30,6 +30,9 @@ Toolkit::test(static function (): void {
 					'tempDir' => Environment::getTestDir(),
 					'appDir' => __DIR__,
 				],
+				'annotations' => [
+					'cache' => '@cache.adapter',
+				],
 			]);
 		})
 		->build();
