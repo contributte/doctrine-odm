@@ -64,7 +64,7 @@ final class OdmCacheExtension extends AbstractExtension
 	{
 		if ($config !== null && $config !== []) { // Nette converts explicit null to an empty array
 			$driverName = $this->prefix($prefix);
-			$driverDef = $this->getHelper()->getDefinitionFromConfig($config, $driverName);
+			$driverDef = $this->getDefinitionFromConfig($config, $driverName);
 
 			// If service is extension specific, then disable autowiring
 			if ($driverDef instanceof Definition && $driverDef->getName() === $driverName) {
@@ -90,7 +90,7 @@ final class OdmCacheExtension extends AbstractExtension
 		}
 
 		$defaultDriverName = $this->prefix('defaultCache');
-		$this->defaultDriverDef = $defaultDriverDef = $this->getHelper()->getDefinitionFromConfig(
+		$this->defaultDriverDef = $defaultDriverDef = $this->getDefinitionFromConfig(
 			$config->defaultDriver,
 			$defaultDriverName
 		);
