@@ -7,6 +7,7 @@ use Nette\DI\CompilerExtension;
 use Nette\DI\Definitions\Definition;
 use Nette\DI\Definitions\ServiceDefinition;
 use Nette\DI\Definitions\Statement;
+use Nettrine\ODM\DI\Helpers\SmartStatement;
 use Nettrine\ODM\Exception\Logical\InvalidStateException;
 use stdClass;
 
@@ -33,27 +34,18 @@ abstract class AbstractExtension extends CompilerExtension
 		return $def;
 	}
 
-	/**
-	 * @param string|mixed[]|Statement $config
-	 */
-	protected function getDefinitionFromConfig(string|array|Statement $config, string $name): Definition|string
+	protected function getDefinitionFromConfig(string|Statement $config, string $name): Definition|string
 	{
+		// Reference to existing service
 		if (is_string($config) && str_starts_with($config, '@')) {
 			return $config;
 		}
 
-		if (is_string($config)) {
-			$config = new Statement($config);
-		} elseif (is_array($config)) {
-			/** @var string $factory */
-			$factory = $config[0] ?? $config['factory'];
-			/** @var mixed[] $arguments */
-			$arguments = $config['arguments'] ?? [];
-			$config = new Statement($factory, $arguments);
-		}
+		// Class name or Statement
+		$statement = SmartStatement::from($config);
 
 		$def = $this->getContainerBuilder()->addDefinition($name);
-		$def->setFactory($config->getEntity() ?? $config, $config->arguments);
+		$def->setFactory($statement);
 
 		return $def;
 	}

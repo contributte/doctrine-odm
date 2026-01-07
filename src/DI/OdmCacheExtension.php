@@ -39,7 +39,6 @@ final class OdmCacheExtension extends AbstractExtension
 	{
 		return Expect::anyOf(
 			Expect::string(),
-			Expect::array(),
 			Expect::type(Statement::class)
 		)->nullable();
 	}
@@ -57,12 +56,9 @@ final class OdmCacheExtension extends AbstractExtension
 		);
 	}
 
-	/**
-	 * @param string|mixed[]|Statement|null $config
-	 */
-	private function loadSpecificDriver(string|array|Statement|null $config, string $prefix): Definition|string
+	private function loadSpecificDriver(string|Statement|null $config, string $prefix): Definition|string
 	{
-		if ($config !== null && $config !== []) { // Nette converts explicit null to an empty array
+		if ($config !== null) {
 			$driverName = $this->prefix($prefix);
 			$driverDef = $this->getDefinitionFromConfig($config, $driverName);
 
@@ -85,7 +81,7 @@ final class OdmCacheExtension extends AbstractExtension
 			return $this->defaultDriverDef;
 		}
 
-		if ($config->defaultDriver === null || $config->defaultDriver === []) { // Nette converts explicit null to an empty array
+		if ($config->defaultDriver === null) {
 			return $this->defaultDriverDef = '@' . Cache::class;
 		}
 
