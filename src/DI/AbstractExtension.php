@@ -4,10 +4,7 @@ namespace Nettrine\ODM\DI;
 
 use Doctrine\ODM\MongoDB\Configuration;
 use Nette\DI\CompilerExtension;
-use Nette\DI\Definitions\Definition;
 use Nette\DI\Definitions\ServiceDefinition;
-use Nette\DI\Definitions\Statement;
-use Nettrine\ODM\DI\Helpers\SmartStatement;
 use Nettrine\ODM\Exception\Logical\InvalidStateException;
 use stdClass;
 
